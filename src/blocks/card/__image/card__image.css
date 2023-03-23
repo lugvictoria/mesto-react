@@ -1,0 +1,20 @@
+.card__image {
+  display: block;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  object-position: center;
+  height: 282px;
+  object-fit: cover;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+@media screen and (max-width: 320px) {
+  .card__image {
+    max-width: 282px;
+  }
+}
+
+.card__image:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,30 @@
+.card {
+  position: relative;
+  max-width: 282px;
+  min-height: 361px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition: opacity .2s;
+}
+
+@media screen and (max-width: 1279px) {
+  .card {
+    max-width: 100%;
+    width: 100%;
+    min-height: auto;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .card {
+    max-width: 282px;
+    min-height: 361px;
+  }
+}
+
+@media screen and (max-width: 319px) {
+  .card {
+    max-width: 282px;
+    min-height: auto;
+  }
+}
