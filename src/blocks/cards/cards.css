@@ -1,4 +1,4 @@
-.elements {
+.cards {
   display: grid;
   max-width: 880px;
   grid-template-columns: repeat(3, 1fr);
@@ -12,7 +12,7 @@
 }
 
 @media screen and (max-width: 900px) {
-  .elements {
+  .cards {
     justify-content: space-between;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, auto);
@@ -21,7 +21,7 @@
 }
 
 @media screen and (max-width: 550px) {
-  .elements {
+  .cards {
     display: flex;
     flex-direction: column;
     width: 90%;
@@ -29,7 +29,7 @@
 }
 
 @media screen and (max-width: 320px) {
-  .elements {
+  .cards {
     max-width: 320px;
     column-gap: 0;
     row-gap: 21px;
@@ -39,7 +39,7 @@
 }
 
 @media screen and (max-width: 319px) {
-  .elements {
+  .cards {
     margin: 0 auto;
   }
 }

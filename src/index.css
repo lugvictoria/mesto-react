@@ -7,7 +7,7 @@
 @import url(../src/blocks/header/header.css);
 @import url(../src/blocks/header/__logo/header__logo.css);
 
-@import url(../src/blocks/elements/elements.css);
+@import url(../src/blocks/cards/cards.css);
 
 @import url(../src/blocks/card/card.css);
 @import url(../src/blocks/card/__group/card__group.css);

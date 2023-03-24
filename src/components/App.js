@@ -67,13 +67,15 @@ function App() {
             <input
               type="text"
               class="popup__input  popup__input_place_name"
+              placeholder="Введите имя и фамилию"
               required />
             <span class="popup__input-error name-input-error"></span>
           </label>
           <label class="popup__field">
             <input
               type="text"
-              class="popup__input  popup__input_place_name"             
+              class="popup__input  popup__input_place_name"
+              placeholder="Введите профессию"    
               required />
             <span class="popup__input-error job-input-error"></span>
           </label>
@@ -94,8 +96,17 @@ function App() {
             <input
               type="text"
               class="popup__input  popup__input_place_name"
+              placeholder="Название"
               required />
             <span class="popup__input-error link-input-error"></span>
+            <input
+              id="link-input"
+              type="url"
+              class="popup__input  popup__input_place_link"
+              placeholder="Ссылка на картинку"
+              name="link"
+              required/>
+        <span class="popup__input-error link-input-error"></span>
           </label>
           </>
         )}
