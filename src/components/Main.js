@@ -1,17 +1,17 @@
 function Main() {
 
   function handleEditAvatarClick() {
-    const popup = document.querySelector('.popup_avatar');
+    const popup = document.querySelector('.popup_type_change-avatar');
     popup.classList.add('popup_opened');
   }
 
   function handleEditProfileClick() {
-    const popup = document.querySelector('.popup_profile-edit');
+    const popup = document.querySelector('.popup_type_edit-profile');
     popup.classList.add('popup_opened');
   }
 
   function handleAddPlaceClick() {
-    const popup = document.querySelector('.popup_card-add');
+    const popup = document.querySelector('.popup_type_add-card');
     popup.classList.add('popup_opened');
   }
 
