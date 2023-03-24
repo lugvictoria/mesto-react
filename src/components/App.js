@@ -3,6 +3,7 @@ import React from 'react';
 import Header from "./Header.js";
 import Footer from "./Footer.js";
 import Main from "./Main.js";
+import ImagePopup from "./ImagePopup";
 
 function App() {
   return (
@@ -66,32 +67,7 @@ function App() {
       </form>
     </div>
    </div>
-   <div className="popup popup_picture" id="popup__picture">
-    <div className="popup__picture-container">
-      <button
-        className="popup__button-close"
-        type="button"
-        aria-label="Закрыть"></button>
-      <img
-        src="#"
-        alt="#"
-        className="popup__picture-image"/>
-      <figcaption className="popup__picture-title">#</figcaption>
-    </div>
-   </div>
-   <div className="popup popup_picture" id="popup__picture">
-    <div className="popup__picture-container">
-      <button
-        className="popup__button-close"
-        type="button"
-        aria-label="Закрыть"></button>
-      <img
-        src="#"
-        alt="#"
-        className="popup__picture-image"/>
-      <figcaption className="popup__picture-title">#</figcaption>
-    </div>
-   </div>
+   <ImagePopup />
 
    <div className="popup popup_avatar">
     <div className="popup__container">
