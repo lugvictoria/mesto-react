@@ -1,9 +1,8 @@
-import logo from './images/header-logo.svg';
-import './index.css';
+import '../index.css';
 import React from 'react';
-import Header from "./components/Header.js";
-import Footer from "./components/Footer.js";
-import Main from "./components/Main.js";
+import Header from "./Header.js";
+import Footer from "./Footer.js";
+import Main from "./Main.js";
 
 function App() {
   return (

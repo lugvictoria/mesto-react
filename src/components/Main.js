@@ -1,11 +1,30 @@
 function Main() {
 
+  function handleEditAvatarClick() {
+    const popup = document.querySelector('.popup_avatar');
+    popup.classList.add('popup_opened');
+  }
+
+  function handleEditProfileClick() {
+    const popup = document.querySelector('.popup_profile-edit');
+    popup.classList.add('popup_opened');
+  }
+
+  function handleAddPlaceClick() {
+    const popup = document.querySelector('.popup_card-add');
+    popup.classList.add('popup_opened');
+  }
+
   return (
 <main>
 <section className="profile">
   <div className="profile__table">
     <div className="profile__avatar-outside">
-      <button className="profile__avatar-button" type="button" aria-label="Изменить аватар">
+      <button 
+      className="profile__avatar-button" 
+      type="button" 
+      aria-label="Изменить аватар" 
+      onClick={handleEditAvatarClick}>
         <img
           className="profile__avatar-image"
           src="#"
@@ -15,11 +34,20 @@ function Main() {
     <div className="profile__info">
       <div className="profile__edit">
         <h1 className="profile__title">Жак-Ив&nbsp;Кусто</h1>
-        <button className="profile__button-edit" type="button" aria-label="Редактировать"></button>
+        <button 
+        className="profile__button-edit" 
+        type="button" 
+        aria-label="Редактировать"
+        onClick={handleEditProfileClick}></button>
       </div>
       <p className="profile__subtitle">Исследователь&nbsp;океана</p>
     </div>
-    <button className="profile__button-add" type="button" aria-label="Добавить"></button>
+    <button 
+    className="profile__button-add" 
+    type="button" 
+    aria-label="Добавить"
+    onClick={handleAddPlaceClick}>
+    </button>
   </div>
 </section>
 
