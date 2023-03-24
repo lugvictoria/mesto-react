@@ -7,27 +7,54 @@ import ImagePopup from "./ImagePopup";
 import PopupWithForm from "./PopupWithForm";
 
 function App() {
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
+
+  function handleEditAvatarClick() {
+    setIsEditAvatarPopupOpen(true);
+  }
+
+  function handleEditProfileClick() {
+    setIsEditProfilePopupOpen(true);
+  }
+
+  function handleAddPlaceClick() {
+    setIsAddPlacePopupOpen(true);
+  }
+
   return (
 <div class="page">
   <Header />
-  <Main />
+  <Main
+        onEditProfile={handleEditProfileClick}
+        onAddPlace={handleAddPlaceClick}
+        onEditAvatar={handleEditAvatarClick}
+  />
   <Footer />
   <PopupWithForm
         name="edit-profile"
         title="Редактировать профиль"
-        children="" />
+        children=""
+        isOpen={isEditProfilePopupOpen}
+        />
   <PopupWithForm
         name="change-avatar"
         title="Обновить аватар"
-        children="" />
+        children=""
+        isOpen={isEditAvatarPopupOpen}
+        />
   <PopupWithForm
         name="add-card"
         title="Новое место"
-        children="" />
+        children=""
+        isOpen={isAddPlacePopupOpen}
+        />
   <PopupWithForm
         name="confirm"
         title="Вы уверены?"
-        children="" />
+        children=""
+         />
    <div className="popup popup_type_add-card">
     <div className="popup__container">
       <button className="popup__button-close" type="button" aria-label="Закрыть"></button>
