@@ -1,11 +1,13 @@
 import React from "react";
 import api from "../utils/api";
 
+
 function Main(props) {
 
   const [userAvatar, setUserAvatar] = React.useState('#');
   const [userName, setUserName] = React.useState('. . .');
   const [userDescription, setUserDescription ] = React.useState('');
+  const [cards, setCards] = React.useState([]);
 
   React.useEffect(() => {
     api.getUserInfo()
@@ -15,6 +17,12 @@ function Main(props) {
         setUserDescription(res.about);
       })
       .catch(err => console.error(err));
+
+    api.getInitialCards()
+    .then(res => {
+      setCards(res);
+    })
+    .catch(err => console.error(err));
   }, []);
 
 return (
@@ -55,45 +63,31 @@ return (
 
 <section className="cards">
 
-<template id="card">
-  <div className="card">
-    <img
-      src="#"
-      alt="#"
-      className="card__image"/>
-    <div className="card__group">
-      <h2 className="card__title">#</h2>
-      <div className="card__like-button-group">
-        <button
-          type="button"
-          className="card__like-button"
-          aria-label="Добавить в избранное">
-        </button>
-        <span className="card__like-count">0</span>
-      </div>
-    </div>
-    <button type="button" className="card__delete-button" aria-label="Удалить"></button>
+{cards.map(card => (
+
+<div class="card" key={card._id}>
+<img
+  src={card.link}
+  alt={card.name}
+  class="card__image" />
+<div class="card__group">
+  <h2 class="card__title">{card.name}</h2>
+  <div class="card__like-button-group">
+    <button
+    type="button"
+    class="card__like-button"
+    aria-label="Добавить в избранное"></button>
+    <span class="card__like-count"></span>
   </div>
-</template>
-<template id="cardWithoutBasket">
-  <div className="card">
-    <img
-      src="#"
-      alt="#"
-      className="card__image"/>
-    <div className="card__group">
-      <h2 className="card__title">#</h2>
-      <div className="card__like-button-group">
-        <button
-          type="button"
-          className="card__like-button"
-          aria-label="Добавить в избранное">
-        </button>
-        <span className="card__like-count">0</span>
-      </div>
-    </div>
-  </div>
-</template>
+</div>
+<button
+  type="button"
+  class="card__delete-button"
+  aria-label="Удалить"></button>
+</div>
+
+))}
+
 </section> 
 </main> 
 );
