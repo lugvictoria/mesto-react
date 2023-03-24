@@ -1,4 +1,21 @@
-function Main(props) {
+  import React from "react";
+  import api from "../utils/api";
+  
+  function Main(props) {
+  
+    const [userAvatar, setUserAvatar] = React.useState('#');
+    const [userName, setUserName] = React.useState('. . .');
+    const [userDescription, setUserDescription ] = React.useState('');
+  
+    React.useEffect(() => {
+      api.getUserInfo()
+        .then(res => {
+          setUserAvatar(res.avatar);
+          setUserName(res.name);
+          setUserDescription(res.about);
+        })
+        .catch(err => console.error(err));
+    }, []);
 
   return (
 <main>
@@ -12,20 +29,20 @@ function Main(props) {
       onClick={props.onEditAvatar}>
         <img
           className="profile__avatar-image"
-          src="#"
+          src={userAvatar}
           alt="аватар"/>
       </button>
     </div>
     <div className="profile__info">
       <div className="profile__edit">
-        <h1 className="profile__title">Жак-Ив&nbsp;Кусто</h1>
+        <h1 className="profile__title">{userName}</h1>
         <button 
         className="profile__button-edit" 
         type="button" 
         aria-label="Редактировать профиль"
         onClick={props.onEditProfile}></button>
       </div>
-      <p className="profile__subtitle">Исследователь&nbsp;океана</p>
+      <p className="profile__subtitle">{userDescription}</p>
     </div>
     <button 
     className="profile__button-add" 
