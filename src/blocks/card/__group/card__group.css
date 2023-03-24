@@ -13,15 +13,16 @@
     max-width: 90%;
   }
 }
+@media screen and (max-width: 550px) {
+  .card__group {
+    max-width: 100%;
+  }
+}
 
 @media screen and (max-width: 320px) {
   .card__group {
-    max-width: 246px;
+    max-width: 282px;
   }
 }
 
-@media screen and (max-width: 319px) {
-  .card__group {
-    margin-left: 10px;
-  }
-}
+

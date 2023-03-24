@@ -65,7 +65,10 @@ return (
 <section className="cards">
 
 {cards.map(card => (
-<Card card={card} />
+  <Card
+   card={card}
+   onCardClick = {props.onCardClick}
+  />
 ))}
 
 </section> 
