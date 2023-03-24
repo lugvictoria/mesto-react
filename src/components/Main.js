@@ -64,9 +64,10 @@ return (
 
 <section className="cards">
 
-{cards.map(card => (
+{cards.map((card) => (
   <Card
    card={card}
+   key={card._id}
    onCardClick = {props.onCardClick}
   />
 ))}
