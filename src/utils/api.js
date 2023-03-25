@@ -14,6 +14,10 @@ class Api {
     this._headers = headers;
   }
 
+  _checkResponse(res){
+    return res.ok ? res.json() : Promise.reject(`${res.status}`)
+  };
+
   /**
    * Получает данные текущего пользователя
    * @returns {Promise} Промис с ответом сервера: объект текущего пользователя
@@ -26,12 +30,8 @@ class Api {
       headers: this._headers,
     })
     .then(res => {
-      if (res.ok) return res.json();
-      return res.json()
-      .then(res => {
-        throw new Error(res.message);
+      return this._checkResponse(res)
       });
-    });
   }
 
   /**
@@ -52,13 +52,9 @@ class Api {
         about: job
       })
     })
-    .then(res => {
-      if (res.ok) return res.json();
-      return res.json()
       .then(res => {
-        throw new Error(res.message);
-      });
-    });
+        return this._checkResponse(res)
+        });
   }
 
   /**
@@ -77,12 +73,8 @@ class Api {
       })
     })
     .then(res => {
-      if (res.ok) return res.json();
-      return res.json()
-      .then(res => {
-        throw new Error(res.message);
+      return this._checkResponse(res)
       });
-    });
   }
 
   /**
@@ -97,12 +89,8 @@ class Api {
       headers: this._headers,
     })
     .then(res => {
-      if (res.ok) return res.json();
-      return res.json()
-      .then(res => {
-        throw new Error(res.message);
+      return this._checkResponse(res)
       });
-    });
   }
 
   /**
@@ -124,12 +112,8 @@ class Api {
       })
     })
     .then(res => {
-      if (res.ok) return res.json();
-      return res.json()
-      .then(res => {
-        throw new Error(res.message);
+      return this._checkResponse(res)
       });
-    });
   }
 
   /**
@@ -145,12 +129,8 @@ class Api {
       headers: this._headers
     })
     .then(res => {
-      if (res.ok) return Promise.resolve();
-      return res.json()
-      .then(res => {
-        throw new Error(res.message);
+      return this._checkResponse(res)
       });
-    });
   }
 
   /**
@@ -166,12 +146,9 @@ class Api {
       headers: this._headers
     })
     .then(res => {
-      if (res.ok) return res.json();
-      return res.json()
-      .then(res => {
-        throw new Error(res.message);
-      });
-    })
+      return this._checkResponse(res);
+      })
+  
     .then(res => {
       return res.likes;
     });
@@ -190,12 +167,8 @@ class Api {
       headers: this._headers
     })
     .then(res => {
-      if (res.ok) return res.json();
-      return res.json()
-      .then(res => {
-        throw new Error(res.message);
-      });
-    })
+      return this._checkResponse(res);
+      })
     .then(res => {
       return res.likes;
     });
