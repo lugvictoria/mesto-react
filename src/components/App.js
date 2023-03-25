@@ -39,7 +39,7 @@ function App() {
   }
 
   return (
-<div class="page">
+<div className="page">
   <Header />
   <Main
         onEditProfile={handleEditProfileClick}
@@ -53,15 +53,15 @@ function App() {
         title="Обновить аватар"
         buttonText="Сохранить"
         children={(
-          <label class="popup__form">
+          <label className="popup__form">
             <input
               type="url"
-              class="popup__input  popup__input_place_name"
+              className="popup__input  popup__input_place_name"
               id="avatar-input"
               placeholder="Ссылка на аватар"
               name="avatarURL"
               required />
-            <span class="popup__input-error avatar-input-error"></span>
+            <span className="popup__input-error avatar-input-error"></span>
           </label>
         )}
         isOpen={isEditAvatarPopupOpen}
@@ -73,21 +73,21 @@ function App() {
         buttonText="Сохранить"
         children={(
           <>
-          <label class="popup__field">
+          <label className="popup__field">
             <input
               type="text"
-              class="popup__input  popup__input_place_name"
+              className="popup__input  popup__input_place_name"
               placeholder="Введите имя и фамилию"
               required />
-            <span class="popup__input-error name-input-error"></span>
+            <span className="popup__input-error name-input-error"></span>
           </label>
-          <label class="popup__field">
+          <label className="popup__field">
             <input
               type="text"
-              class="popup__input  popup__input_place_name"
+              className="popup__input  popup__input_place_name"
               placeholder="Введите профессию"    
               required />
-            <span class="popup__input-error job-input-error"></span>
+            <span className="popup__input-error job-input-error"></span>
           </label>
           </>
         )}
@@ -102,21 +102,21 @@ function App() {
         onClose={closeAllPopups}
         children={(
           <>
-          <label class="popup__form">
+          <label className="popup__form">
             <input
               type="text"
-              class="popup__input  popup__input_place_name"
+              className="popup__input  popup__input_place_name"
               placeholder="Название"
               required />
-            <span class="popup__input-error link-input-error"></span>
+            <span className="popup__input-error link-input-error"></span>
             <input
               id="link-input"
               type="url"
-              class="popup__input  popup__input_place_link"
+              className="popup__input  popup__input_place_link"
               placeholder="Ссылка на картинку"
               name="link"
               required/>
-        <span class="popup__input-error link-input-error"></span>
+        <span className="popup__input-error link-input-error"></span>
           </label>
           </>
         )}
