@@ -5,6 +5,7 @@ import Footer from "./Footer.js";
 import Main from "./Main.js";
 import ImagePopup from "./ImagePopup";
 import PopupWithForm from "./PopupWithForm";
+import CurrentUserContext from "../contexts/CurrentUserContext";
 
 import api from "../utils/api";
 
@@ -49,6 +50,7 @@ function App() {
   }
 
   return (
+    <CurrentUserContext.Provider value={currentUser}>
     <div className="page">
       <Header />
       <Main
@@ -136,6 +138,7 @@ function App() {
       />
 
     </div>
+    </CurrentUserContext.Provider>
   );
 }
 
