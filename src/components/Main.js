@@ -26,6 +26,15 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
       .catch(console.error);
   }
 
+  function handleCardDelete(card) {
+    const cardId = card._id;
+    api.deleteCard(cardId)
+      .then(() => {
+        setCards((state) => state.filter(card => card._id !== cardId));
+      })
+      .catch(console.error);
+  }
+
   return (
     <main>
       <section className="profile">
@@ -70,6 +79,7 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
             key={card._id}
             onCardClick={onCardClick}
             onCardLike = {handleCardLike}
+            onCardDelete = {handleCardDelete}
           />
         ))}
 
