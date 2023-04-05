@@ -4,6 +4,7 @@ import Header from "./Header.js";
 import Footer from "./Footer.js";
 import Main from "./Main.js";
 import ImagePopup from "./ImagePopup";
+import EditProfilePopup from './EditProfilePopup';
 import PopupWithForm from "./PopupWithForm";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
@@ -77,29 +78,10 @@ function App() {
           <span className="popup__input-error avatar-input-error"></span>
         </label>
       </PopupWithForm>
-      <PopupWithForm
-        name="edit-profile"
-        title="Редактировать профиль"
-        buttonText="Сохранить"
-        isOpen={isEditProfilePopupOpen}
-        onClose={closeAllPopups}>
-        <label className="popup__field">
-          <input
-            type="text"
-            className="popup__input  popup__input_place_name"
-            placeholder="Введите имя и фамилию"
-            required />
-          <span className="popup__input-error name-input-error"></span>
-        </label>
-        <label className="popup__field">
-          <input
-            type="text"
-            className="popup__input  popup__input_place_name"
-            placeholder="Введите профессию"
-            required />
-          <span className="popup__input-error job-input-error"></span>
-        </label>
-      </PopupWithForm>
+      <EditProfilePopup
+          isOpen={isEditProfilePopupOpen}
+          onClose={closeAllPopups}
+          />
       <PopupWithForm
         name="add-card"
         title="Новое место"
