@@ -3,7 +3,7 @@ import api from "../utils/api";
 import Card from "./Card.js";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
-function Main(props) {
+function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
 
   const currentUser = React.useContext(CurrentUserContext);
   const [cards, setCards] = React.useState([]);
@@ -14,8 +14,17 @@ function Main(props) {
       .then(res => {
         setCards(res);
       })
-      .catch(err => console.error(err));
+      .catch(console.error);
   }, []);
+
+  function handleCardLike(card) {
+    const isLiked = card.likes.some(person => person._id === currentUser._id);
+    api.toggleLike(card._id, isLiked)
+      .then(newCard => {
+        setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+      })
+      .catch(console.error);
+  }
 
   return (
     <main>
@@ -26,7 +35,7 @@ function Main(props) {
               className="profile__avatar-button"
               type="button"
               aria-label="Изменить аватар"
-              onClick={props.onEditAvatar}>
+              onClick={onEditAvatar}>
               <img
                 className="profile__avatar-image"
                 src={currentUser.avatar}
@@ -40,7 +49,7 @@ function Main(props) {
                 className="profile__button-edit"
                 type="button"
                 aria-label="Редактировать профиль"
-                onClick={props.onEditProfile}></button>
+                onClick={onEditProfile}></button>
             </div>
             <p className="profile__subtitle">{currentUser.about}</p>
           </div>
@@ -48,7 +57,7 @@ function Main(props) {
             className="profile__button-add"
             type="button"
             aria-label="Добавить"
-            onClick={props.onAddPlace}>
+            onClick={onAddPlace}>
           </button>
         </div>
       </section>
@@ -59,7 +68,8 @@ function Main(props) {
           <Card
             card={card}
             key={card._id}
-            onCardClick={props.onCardClick}
+            onCardClick={onCardClick}
+            onCardLike = {handleCardLike}
           />
         ))}
 

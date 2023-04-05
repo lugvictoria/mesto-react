@@ -14,9 +14,9 @@ class Api {
     this._headers = headers;
   }
 
-  _checkResponse(res){
-    return res.ok ? res.json() : Promise.reject(`${res.status}`)
-  };
+   _checkResponse(res){
+  return res.ok ? res.json() : Promise.reject(`${res.status}`)
+   };
 
   /**
    * Получает данные текущего пользователя
@@ -147,10 +147,6 @@ class Api {
     })
     .then(res => {
       return this._checkResponse(res);
-      })
-  
-    .then(res => {
-      return res.likes;
     });
   }
 
@@ -168,9 +164,6 @@ class Api {
     })
     .then(res => {
       return this._checkResponse(res);
-      })
-    .then(res => {
-      return res.likes;
     });
   }
 
