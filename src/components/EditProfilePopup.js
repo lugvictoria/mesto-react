@@ -40,7 +40,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}>
-      <label className="popup__field">
+      <label className="popup__form">
         <input
           type="text"
           className="popup__input  popup__input_place_name"
@@ -50,7 +50,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
           value={name ?? ''} />
         <span className="popup__input-error name-input-error"></span>
       </label>
-      <label className="popup__field">
+      <label className="popup__form">
         <input
           type="text"
           className="popup__input  popup__input_place_name"

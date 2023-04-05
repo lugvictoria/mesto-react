@@ -1,7 +1,7 @@
 import React from "react";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
-function Card({card, onCardClick, onCardLike, onCardDelete}) {
+function Card({ card, onCardClick, onCardLike, onCardDelete }) {
   const currentUser = React.useContext(CurrentUserContext);
   const isOwn = card.owner._id === currentUser._id;
   const isLiked = card.likes.some(person => person._id === currentUser._id);
@@ -37,7 +37,7 @@ function Card({card, onCardClick, onCardLike, onCardDelete}) {
           <span className="card__like-count">{card.likes.length}</span>
         </div>
       </div>
-      {isOwn && (<button aria-label="Удалить" type="button" className="card__delete-button"/>)}
+      {isOwn && (<button aria-label="Удалить" type="button" className="card__delete-button" />)}
     </div>
 
   )
