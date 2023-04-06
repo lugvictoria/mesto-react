@@ -3,8 +3,15 @@ import api from "../utils/api";
 import Card from "./Card.js";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
-function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick, cards, onCardLike, onCardDelete }) {
-
+function Main({
+  onEditAvatar,
+  onEditProfile,
+  onAddPlace,
+  onCardClick,
+  cards,
+  onCardLike,
+  onCardDelete,
+}) {
   const currentUser = React.useContext(CurrentUserContext);
 
   return (
@@ -16,11 +23,13 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick, cards, onC
               className="profile__avatar-button"
               type="button"
               aria-label="Изменить аватар"
-              onClick={onEditAvatar}>
+              onClick={onEditAvatar}
+            >
               <img
                 className="profile__avatar-image"
                 src={currentUser.avatar}
-                alt="аватар" />
+                alt="аватар"
+              />
             </button>
           </div>
           <div className="profile__info">
@@ -30,7 +39,8 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick, cards, onC
                 className="profile__button-edit"
                 type="button"
                 aria-label="Редактировать профиль"
-                onClick={onEditProfile}></button>
+                onClick={onEditProfile}
+              ></button>
             </div>
             <p className="profile__subtitle">{currentUser.about}</p>
           </div>
@@ -38,13 +48,12 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick, cards, onC
             className="profile__button-add"
             type="button"
             aria-label="Добавить"
-            onClick={onAddPlace}>
-          </button>
+            onClick={onAddPlace}
+          ></button>
         </div>
       </section>
 
       <section className="cards">
-
         {cards.map((card) => (
           <Card
             card={card}
@@ -54,11 +63,9 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick, cards, onC
             onCardDelete={onCardDelete}
           />
         ))}
-
       </section>
     </main>
   );
 }
 
 export default Main;
-

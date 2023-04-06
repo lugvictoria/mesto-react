@@ -3,13 +3,12 @@ import PopupWithForm from "./PopupWithForm";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
 function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
-
   const currentUser = React.useContext(CurrentUserContext);
 
-  const [name, setName] = React.useState('');
-  const [description, setDescription] = React.useState('');
+  const [name, setName] = React.useState("");
+  const [description, setDescription] = React.useState("");
 
-    /**
+  /**
    * Сброс значений инпутов при открытии/закрытии попапа или при смене пользователя
    */
 
@@ -43,7 +42,8 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
       buttonText="Сохранить"
       isOpen={isOpen}
       onClose={onClose}
-      onSubmit={handleSubmit}>
+      onSubmit={handleSubmit}
+    >
       <label className="popup__form">
         <input
           type="text"
@@ -51,7 +51,8 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
           placeholder="Введите имя и фамилию"
           required
           onChange={handleChangeName}
-          value={name ?? ''} />
+          value={name ?? ""}
+        />
         <span className="popup__input-error name-input-error"></span>
       </label>
       <label className="popup__form">
@@ -61,7 +62,8 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
           placeholder="Введите профессию"
           required
           onChange={handleChangeDescription}
-          value={description ?? ''} />
+          value={description ?? ""}
+        />
         <span className="popup__input-error job-input-error"></span>
       </label>
     </PopupWithForm>

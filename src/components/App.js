@@ -1,10 +1,10 @@
-import '../index.css';
-import React from 'react';
+import "../index.css";
+import React from "react";
 import Header from "./Header.js";
 import Footer from "./Footer.js";
 import Main from "./Main.js";
 import ImagePopup from "./ImagePopup";
-import EditProfilePopup from './EditProfilePopup';
+import EditProfilePopup from "./EditProfilePopup";
 import PopupWithForm from "./PopupWithForm";
 import EditAvatarPopup from "./EditAvatarPopup";
 import CurrentUserContext from "../contexts/CurrentUserContext";
@@ -13,8 +13,10 @@ import AddPlacePopup from "./AddPlacePopup";
 import api from "../utils/api";
 
 function App() {
-  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
-  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] =
+    React.useState(false);
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
+    React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [isImagePopupOpen, setIsImagePopupOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState({});
@@ -24,14 +26,13 @@ function App() {
   const [cards, setCards] = React.useState([]);
 
   React.useEffect(() => {
-    api.getUserInfo()
-      .then(setCurrentUser)
-      .catch(console.error);
+    api.getUserInfo().then(setCurrentUser).catch(console.error);
   }, []);
 
   React.useEffect(() => {
-    api.getInitialCards()
-      .then(res => {
+    api
+      .getInitialCards()
+      .then((res) => {
         setCards(res);
       })
       .catch(console.error);
@@ -63,7 +64,8 @@ function App() {
   }
 
   function handleUpdateUser(userInfo) {
-    api.setUserInfo(userInfo)
+    api
+      .setUserInfo(userInfo)
       .then((newUserInfo) => {
         setCurrentUser(newUserInfo);
         closeAllPopups();
@@ -72,8 +74,9 @@ function App() {
   }
 
   function handleUpdateAvatar({ avatar }) {
-    api.changeAvatar(avatar)
-      .then(newUserInfo => {
+    api
+      .changeAvatar(avatar)
+      .then((newUserInfo) => {
         setCurrentUser(newUserInfo);
         closeAllPopups();
       })
@@ -81,19 +84,23 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some(person => person._id === currentUser._id);
-    api.toggleLike(card._id, isLiked)
-      .then(newCard => {
-        setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+    const isLiked = card.likes.some((person) => person._id === currentUser._id);
+    api
+      .toggleLike(card._id, isLiked)
+      .then((newCard) => {
+        setCards((state) =>
+          state.map((c) => (c._id === card._id ? newCard : c))
+        );
       })
       .catch(console.error);
   }
 
   function handleCardDelete(card) {
     const cardId = card._id;
-    api.deleteCard(cardId)
+    api
+      .deleteCard(cardId)
       .then(() => {
-        setCards((state) => state.filter(card => card._id !== cardId));
+        setCards((state) => state.filter((card) => card._id !== cardId));
       })
       .catch(console.error);
   }
@@ -126,7 +133,8 @@ function App() {
         <EditAvatarPopup
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}
-          onUpdateAvatar={handleUpdateAvatar} />
+          onUpdateAvatar={handleUpdateAvatar}
+        />
         <EditProfilePopup
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
@@ -135,7 +143,8 @@ function App() {
         <AddPlacePopup
           isOpen={isAddPlacePopupOpen}
           onClose={closeAllPopups}
-          onAddPlace={handleAddPlace} />
+          onAddPlace={handleAddPlace}
+        />
         <PopupWithForm
           name="confirm"
           title="Вы уверены?"
@@ -149,7 +158,6 @@ function App() {
           onClose={closeAllPopups}
           isOpen={isImagePopupOpen}
         />
-
       </div>
     </CurrentUserContext.Provider>
   );
