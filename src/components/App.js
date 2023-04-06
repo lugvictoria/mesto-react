@@ -1,5 +1,5 @@
-import "../index.css";
 import React from "react";
+
 import Header from "./Header.js";
 import Footer from "./Footer.js";
 import Main from "./Main.js";
@@ -13,22 +13,30 @@ import AddPlacePopup from "./AddPlacePopup";
 import api from "../utils/api";
 
 function App() {
+  // Состояние попапов
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] =
     React.useState(false);
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
     React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [isImagePopupOpen, setIsImagePopupOpen] = React.useState(false);
+  // Выбранная карточка для попапа с картинкой
   const [selectedCard, setSelectedCard] = React.useState({});
-
+// Пользователь
   const [currentUser, setCurrentUser] = React.useState({});
-
+// Карточки
   const [cards, setCards] = React.useState([]);
 
+ /**
+   * Получение информации о пользователе при открытии страницы
+   */
   React.useEffect(() => {
     api.getUserInfo().then(setCurrentUser).catch(console.error);
   }, []);
 
+    /**
+   * Получение исходных карточек для отображения на странице
+   */
   React.useEffect(() => {
     api
       .getInitialCards()
@@ -37,7 +45,7 @@ function App() {
       })
       .catch(console.error);
   }, []);
-
+// Функции открытия/закрытия попапов
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
   }
@@ -50,11 +58,6 @@ function App() {
     setIsAddPlacePopupOpen(true);
   }
 
-  function handleCardClick(card) {
-    setSelectedCard(card);
-    setIsImagePopupOpen(true);
-  }
-
   function closeAllPopups() {
     setIsEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
@@ -63,6 +66,12 @@ function App() {
     setSelectedCard({});
   }
 
+  function handleCardClick(card) {
+    setSelectedCard(card);
+    setIsImagePopupOpen(true);
+  }
+
+  // Функции с изменением/обновлением данных на странице
   function handleUpdateUser(userInfo) {
     api
       .setUserInfo(userInfo)
