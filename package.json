@@ -1,6 +1,10 @@
 {
   "name": "mesto-react",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lugvictoria/mesto-react.git"
+  },
   "homepage": "https://lugvictoria.github.io/mesto-react",
   "private": true,
   "dependencies": {

@@ -161,7 +161,6 @@ function App() {
           isOpen={false}
           onClose={closeAllPopups}
         />
-
         <ImagePopup
           card={selectedCard}
           onClose={closeAllPopups}
