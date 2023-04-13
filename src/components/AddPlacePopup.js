@@ -46,6 +46,7 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
           className="popup__input  popup__input_place_name"
           placeholder="Название"
           required
+          value={name}
           onChange={handleChangeName}
         />
         <span className="popup__input-error link-input-error"></span>

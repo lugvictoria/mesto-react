@@ -6,7 +6,6 @@
     "url": "git+https://github.com/lugvictoria/mesto-react.git"
   },
   "homepage": "https://lugvictoria.github.io/mesto-react",
-  "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
